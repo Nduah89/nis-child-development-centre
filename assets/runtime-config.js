@@ -1,0 +1,1 @@
+window.NIS_CONFIG={supabaseUrl:"https://hcqjcozjjwkowrahcpjj.supabase.co",supabaseKey:"sb_publishable_Xq04ELNHNfYbBZsiZdwNzw_vx5hmWj8",canonicalUrl:"https://nduah89.github.io/nis-child-development-centre/",version:"1.1.0"};

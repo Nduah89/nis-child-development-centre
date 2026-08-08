@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0f5c45">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://hcqjcozjjwkowrahcpjj.supabase.co wss://hcqjcozjjwkowrahcpjj.supabase.co; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="description" content="NIS Child Development Centre advances holistic child development through education, protection, health, empowerment and community development.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="NIS Child Development Centre">
@@ -14,28 +15,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.v1.0.2.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
-  <script>
-    window.NIS_CONFIG={supabaseUrl:"https://hcqjcozjjwkowrahcpjj.supabase.co",supabaseKey:"sb_publishable_Xq04ELNHNfYbBZsiZdwNzw_vx5hmWj8",canonicalUrl:"https://nduah89.github.io/nis-child-development-centre/",version:"1.0.2"};
-  </script>
-  <script defer src="assets/app.v1.0.2.js"></script>
+  <link rel="stylesheet" href="assets/styles.v1.1.0.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.0/dist/umd/supabase.min.js"></script>
+  <script defer src="assets/runtime-config.js"></script>
+  <script defer src="assets/app.v1.1.0.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header" id="siteHeader">
   <div class="container nav-wrap">
     <a class="brand" href="#home" aria-label="NIS Child Development Centre home">
-      <span class="brand-mark" id="brandMark" aria-hidden="true">NIS</span><img class="brand-logo" id="brandLogo" alt="" hidden>
-      <span><strong id="brandName">NIS Child Development Centre</strong><small>Child Development • Community • Education</small></span>
+      <span class="brand-emblem" aria-hidden="true"><span class="brand-mark" id="brandMark">NIS</span><img class="brand-logo" id="brandLogo" alt="" hidden></span>
+      <span class="brand-copy"><strong id="brandName">NIS Child Development Centre</strong><small>Child Development • Community • Education</small></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
     <nav id="primaryNav" class="primary-nav" aria-label="Primary navigation">
-      <a href="#about">About</a><a href="#work">What We Do</a><a href="#school">Nipe International School</a><a href="#programs">Programs</a><a href="#impact">Impact</a><a href="#stories">News</a><a href="#gallery">Gallery</a><a href="#resources">Resources</a><a href="#contact">Contact</a>
+      <a href="#home">Home</a><a href="#about">About</a><a href="#work">Our Work</a><a href="#school">Nipe International School</a><a href="#impact">Impact</a><a href="#stories">Stories</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
       <a class="btn btn-small btn-accent" href="#donate">Donate</a>
     </nav>
   </div>
 </header>
+<div id="siteRuntimeStatus" class="site-runtime-status" role="status" hidden></div>
 
 <main id="main">
 <section id="home" class="hero section-dark">
@@ -49,7 +49,7 @@
       <div class="button-row"><a class="btn btn-accent" href="#donate">Donate Now</a><a class="btn btn-light" href="#programs">Explore Our Programs</a><a class="btn btn-ghost" href="#school">Discover Nipe International School</a></div>
     </div>
     <aside class="hero-card glass-card" aria-label="Our educational institution">
-      <span class="mini-label">Our Educational Institution</span>
+      <div class="hero-school-heading"><img id="schoolHeroLogo" class="hero-school-logo" alt="Nipe International School logo" hidden><span class="mini-label">Our Educational Institution</span></div>
       <h2>Nipe International School</h2>
       <p>Child Development Centre</p>
       <strong>An Educational Institution of NIS Child Development Centre</strong>
@@ -65,6 +65,8 @@
   <div class="mission-grid"><article><span>01</span><h3>Mission</h3><p id="missionText">Administrator-defined official mission statement.</p></article><article><span>02</span><h3>Vision</h3><p id="visionText">Administrator-defined official vision statement.</p></article><article><span>03</span><h3>Purpose</h3><p id="purposeText">Holistic child development through coordinated pathways.</p></article><article><span>04</span><h3>Values</h3><p id="valuesText">Hope, compassion, protection, empowerment, accountability and trust.</p></article></div>
 </div></section>
 
+<section id="leadershipSection" class="section section-compact leadership-section" hidden><div class="container"><p class="eyebrow dark">Leadership</p><div class="section-heading"><h2>People entrusted with our mission</h2><p>Published leadership profiles help communities, partners and donors understand who is accountable for the organisation.</p></div><div id="leadershipGrid" class="leadership-grid"></div></div></section>
+
 <section id="work" class="section section-soft"><div class="container"><p class="eyebrow dark">What We Do</p><div class="section-heading"><h2>Multiple pathways for holistic child development</h2><p>Our intervention areas are managed from the database and can grow with the organisation.</p></div><div id="interventionGrid" class="card-grid"></div></div></section>
 
 <section id="school" class="section school-section"><div class="container school-grid">
@@ -76,11 +78,15 @@
 
 <section id="impact" class="section section-dark impact-section"><div class="container"><p class="eyebrow">Our Impact</p><div class="section-heading"><h2>Accountability backed by evidence</h2><p>Impact values are database-driven and are never invented by the website.</p></div><div class="impact-layout"><div id="impactCards" class="impact-cards"></div><div class="sdg-card"><span class="mini-label">Sustainable Development Goals</span><h3>Aligned to relevant global goals</h3><p>Programs and projects can be linked to applicable SDGs, including education, health, gender equality, reduced inequalities, strong institutions and partnerships.</p><div class="sdg-list"><span>SDG 3</span><span>SDG 4</span><span>SDG 5</span><span>SDG 10</span><span>SDG 16</span><span>SDG 17</span></div></div></div></div></section>
 
-<section id="stories" class="section"><div class="container"><p class="eyebrow dark">News & Stories</p><div class="section-heading"><h2>Stories from our work</h2><p>Published updates from the NGO and its educational institution.</p></div><div id="newsGrid" class="content-grid"></div></div></section>
+<section id="supporters" class="section supporters-section" hidden><div class="container"><p class="eyebrow dark">Partners, Donors & Sponsors</p><div class="section-heading"><h2>Together, we expand opportunity</h2><p>We recognise organisations and supporters who have explicitly consented to public acknowledgement. Private donor records are never published automatically.</p></div><div id="partnerLogoGrid" class="partner-logo-grid"></div><div id="supporterGrid" class="supporter-grid"></div></div></section>
+
+<section id="stories" class="section"><div class="container"><p class="eyebrow dark">News & Events</p><div class="section-heading"><h2>Stories, milestones and upcoming moments</h2><p>Published updates from the NGO and its educational institution, presented in one clear place.</p></div><div class="story-columns"><div class="story-column"><div class="subsection-heading"><h3>Latest Stories</h3><span>News & updates</span></div><div id="newsGrid" class="story-list"></div></div><div class="story-column"><div class="subsection-heading"><h3>Events</h3><span>Upcoming & recent</span></div><div id="eventsGrid" class="story-list"></div></div></div></div></section>
 
 <section id="gallery" class="section section-soft"><div class="container"><p class="eyebrow dark">Gallery</p><div class="section-heading"><h2>Moments of impact</h2><p>Each album independently rotates through its own approved photographs. Open an album for the full slideshow.</p></div><div id="galleryGrid" class="gallery-grid"></div></div></section>
 
 <section id="resources" class="section"><div class="container"><p class="eyebrow dark">Resources & Transparency</p><div class="section-heading"><h2>Documents that strengthen accountability</h2><p>Annual reports, safeguarding policies, strategic plans, program reports and other approved public documents.</p></div><div id="resourceList" class="resource-list"></div></div></section>
+
+<section id="get-involved" class="section get-involved-section"><div class="container"><p class="eyebrow dark">Get Involved</p><div class="section-heading"><h2>Choose a meaningful way to support children and communities</h2><p>Give, volunteer, partner or support a specific programme. Every pathway is designed to connect people with the mission clearly.</p></div><div class="involvement-grid"><article><span class="involve-icon">♥</span><h3>Donate</h3><p>Support education, scholarships, health, protection and community development.</p><a class="text-link dark-link" href="#donate">Support the mission →</a></article><article><span class="involve-icon">🤝</span><h3>Partner With Us</h3><p>Explore corporate, foundation, community and institutional partnership opportunities.</p><a class="text-link dark-link" href="#contact" data-contact-category="Partnership">Start a partnership enquiry →</a></article><article><span class="involve-icon">◎</span><h3>Volunteer</h3><p>Contribute skills, time and expertise through safeguarding-aware volunteer opportunities.</p><a class="text-link dark-link" href="#contact" data-contact-category="Volunteer">Volunteer with us →</a></article></div></div></section>
 
 <section id="donate" class="section donation-section"><div class="container split"><div><p class="eyebrow">Support Our Mission</p><h2>Invest in a child's future</h2><p>Choose how you would like your contribution to support the organisation. Online payment completion is enabled only after a secure server-side payment gateway is configured.</p><ul class="check-list"><li>Wherever Needed Most</li><li>Education and Nipe International School</li><li>Scholarships</li><li>Health and Nutrition</li><li>Child Protection</li><li>Community Development</li></ul></div><form id="donationForm" class="form-card"><h3>Donation Interest</h3><label>Full name<input name="name" required maxlength="120"></label><label>Email<input name="email" type="email" required maxlength="180"></label><label>Designation<select name="designation"><option>Wherever Needed Most</option><option>Education</option><option>Nipe International School Support</option><option>Scholarships</option><option>Health and Nutrition</option><option>Community Development</option></select></label><div class="form-row"><label>Amount<input name="amount" type="number" min="1" step="0.01" required></label><label>Currency<select name="currency"><option>GHS</option><option>USD</option><option>GBP</option><option>EUR</option></select></label></div><button class="btn btn-accent" type="submit">Continue Donation Enquiry</button><p class="form-status" id="donationStatus" role="status"></p></form></div></section>
 
@@ -89,11 +95,11 @@
 <section class="newsletter"><div class="container newsletter-row"><div><strong>Stay connected</strong><span>Receive occasional updates about our programs, impact and opportunities.</span></div><form id="newsletterForm"><label class="sr-only" for="newsletterEmail">Email address</label><input id="newsletterEmail" name="email" type="email" placeholder="Email address" required><button class="btn btn-accent" type="submit">Subscribe</button><p class="form-status newsletter-status" id="newsletterStatus" role="status"></p></form></div></section>
 </main>
 
-<footer class="site-footer"><div class="container footer-grid"><div><strong class="footer-brand">NIS Child Development Centre</strong><p>Holistic child development through education, protection, health, empowerment and community development.</p></div><div><strong>Our Educational Institution</strong><p>Nipe International School (Child Development Centre)</p><a id="footerSchoolLink" href="#school">Visit School Website</a></div><div><strong>Quick Links</strong><a href="#programs">Programs</a><a href="#impact">Impact</a><a href="#resources">Resources</a><a href="#contact">Contact</a></div><div><strong>Safeguarding</strong><p>Child safeguarding and protection are first-class organisational commitments.</p><a href="#resources">View policies</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> NIS Child Development Centre</span><button class="footer-admin" id="adminOpen">Administration</button></div></footer>
+<footer class="site-footer"><div class="container footer-grid"><div><strong class="footer-brand">NIS Child Development Centre</strong><p>Holistic child development through education, protection, health, empowerment and community development.</p></div><div><strong>Our Educational Institution</strong><p>Nipe International School (Child Development Centre)</p><a id="footerSchoolLink" href="#school">Visit School Website</a></div><div><strong>Quick Links</strong><a href="#work">Our Work</a><a href="#impact">Impact</a><a href="#supporters">Partners & Supporters</a><a href="#resources">Resources</a><a href="#contact">Contact</a></div><div><strong>Safeguarding</strong><p>Child safeguarding and protection are first-class organisational commitments.</p><a href="#resources">View policies</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> NIS Child Development Centre</span><button class="footer-admin" id="adminOpen">Administration</button></div></footer>
 
 <div class="modal" id="galleryModal" hidden><div class="modal-backdrop" data-close-gallery></div><div class="gallery-viewer" role="dialog" aria-modal="true" aria-labelledby="galleryTitle"><button class="modal-close" data-close-gallery aria-label="Close gallery">×</button><div class="viewer-image-wrap"><img id="galleryImage" alt=""><button class="viewer-nav prev" id="galleryPrev" aria-label="Previous image">‹</button><button class="viewer-nav next" id="galleryNext" aria-label="Next image">›</button></div><div class="viewer-meta"><div><h2 id="galleryTitle"></h2><p id="galleryCaption"></p></div><div class="viewer-controls"><span id="galleryCounter"></span><button id="galleryPlayPause" class="btn btn-small btn-outline">Pause slideshow</button></div></div><div id="galleryThumbs" class="viewer-thumbs"></div></div></div>
 
-<div class="modal" id="adminModal" hidden><div class="modal-backdrop" data-close-admin></div><div class="admin-shell" role="dialog" aria-modal="true" aria-labelledby="adminTitle"><button class="modal-close" data-close-admin aria-label="Close administration">×</button><section id="adminLoginView" class="admin-login"><p class="eyebrow dark">Secure Administration</p><h2 id="adminTitle">NIS Child Development Centre Admin</h2><p>Sign in using an authorised Supabase administrator account.</p><form id="adminLoginForm"><label>Email<input name="email" type="email" required></label><label>Password<input name="password" type="password" required></label><button class="btn btn-primary" type="submit">Sign In</button><p id="adminLoginStatus" class="form-status" role="status"></p></form></section><section id="adminDashboard" hidden><div class="admin-top"><div><span class="mini-label">Website build v1.0.2</span><h2>Administration Dashboard</h2><p id="adminIdentity"></p></div><button id="adminLogout" class="btn btn-small btn-outline">Sign Out</button></div><div id="adminGlobalStatus" class="admin-global-status" role="status" hidden></div><div class="admin-layout"><nav id="adminNav" class="admin-nav"></nav><div class="admin-content"><div id="adminModule"></div></div></div></section></div></div>
+<div class="modal" id="adminModal" hidden><div class="modal-backdrop" data-close-admin></div><div class="admin-shell" role="dialog" aria-modal="true" aria-labelledby="adminTitle"><button class="modal-close" data-close-admin aria-label="Close administration">×</button><section id="adminLoginView" class="admin-login"><p class="eyebrow dark">Secure Administration</p><h2 id="adminTitle">NIS Child Development Centre Admin</h2><p>Sign in using an authorised Supabase administrator account.</p><form id="adminLoginForm"><label>Email<input name="email" type="email" required></label><label>Password<input name="password" type="password" required></label><button class="btn btn-primary" type="submit">Sign In</button><p id="adminLoginStatus" class="form-status" role="status"></p></form></section><section id="adminDashboard" hidden><div class="admin-top"><div><span class="mini-label">Website build v1.1.0</span><h2>Administration Dashboard</h2><p id="adminIdentity"></p></div><button id="adminLogout" class="btn btn-small btn-outline">Sign Out</button></div><div id="adminGlobalStatus" class="admin-global-status" role="status" hidden></div><div class="admin-layout"><nav id="adminNav" class="admin-nav"></nav><div class="admin-content"><div id="adminModule"></div></div></div></section></div></div>
 
 <noscript><div class="noscript">JavaScript is required for dynamic website content and administration.</div></noscript>
 </body></html>
